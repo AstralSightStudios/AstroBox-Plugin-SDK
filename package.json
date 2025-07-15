@@ -1,0 +1,32 @@
+{
+  "name": "astrobox-plugin-sdk",
+  "version": "1.0.0",
+  "description": "JavaScript Plugin SDK For AstroBox",
+  "homepage": "https://github.com/AstralSightStudios/AstroBox-Plugin-SDK#readme",
+  "bugs": {
+    "url": "https://github.com/AstralSightStudios/AstroBox-Plugin-SDK/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AstralSightStudios/AstroBox-Plugin-SDK.git"
+  },
+  "license": "MIT",
+  "author": "AstralSightStudios",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "import": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
