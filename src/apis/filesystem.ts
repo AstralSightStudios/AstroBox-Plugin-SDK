@@ -1,6 +1,11 @@
 export interface FileSystem {
-    pickFile(): Promise<PickFileReturn>;
+    pickFile(options?: PickFileOptions): Promise<PickFileReturn>;
     pickTextFile(): Promise<PickTextFileReturn>;
+}
+
+export interface PickFileOptions {
+    read_start: number;
+    read_end: number;
 }
 
 export interface PickFileReturn {
