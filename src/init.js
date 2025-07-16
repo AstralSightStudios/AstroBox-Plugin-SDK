@@ -73,5 +73,6 @@ export function initApis(AstroBox) {
     // FileSystem APIs
     AstroBox.filesystem = {};
     AstroBox.filesystem.pickFile = filesystemImpl.pickFile;
-    AstroBox.filesystem.pickTextFile = filesystemImpl.pickTextFile;
+    AstroBox.filesystem.statFile = filesystemImpl.statFile;
+    AstroBox.filesystem.readFile = filesystemImpl.readFile;
 }

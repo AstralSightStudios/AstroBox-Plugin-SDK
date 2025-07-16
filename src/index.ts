@@ -17,7 +17,7 @@ export type { AppInfo } from "./apis/thirdpartyapp.js"
 import type { UI } from "./apis/ui.js";
 export type { PluginUINode, PluginUINodeContent, PluginUIInput, PluginUIDropdown, PluginUIButton } from "./apis/ui.js";
 import type { FileSystem } from "./apis/filesystem.js";
-export type { PickFileOptions, PickFileReturn, PickTextFileReturn } from "./apis/filesystem.js"
+export type { StatFileReturn, PickFileReturn, ReadFileOptions } from "./apis/filesystem.js"
 
 interface AstroBoxSDK {
   lifecycle: Lifecycle;

@@ -1,21 +1,19 @@
 export interface FileSystem {
-    pickFile(options?: PickFileOptions): Promise<PickFileReturn>;
-    pickTextFile(): Promise<PickTextFileReturn>;
-}
-
-export interface PickFileOptions {
-    read_start: number;
-    read_end: number;
+    pickFile(): Promise<PickFileReturn>;
+    statFile(path: string): Promise<StatFileReturn>;
+    readFile(path: string, options?: ReadFileOptions): Promise<Uint8Array>;
 }
 
 export interface PickFileReturn {
     path: string;
     size: number;
-    content: Uint8Array;
 }
 
-export interface PickTextFileReturn {
-    path: string;
+export interface StatFileReturn {
     size: number;
-    content: string;
+}
+
+export interface ReadFileOptions {
+    offset: number;
+    len: number;
 }

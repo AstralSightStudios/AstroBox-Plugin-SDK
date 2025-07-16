@@ -1,30 +1,42 @@
-import { PickFileOptions, PickFileReturn, PickTextFileReturn } from "../apis/filesystem.js";
+import { ReadFileOptions, PickFileReturn, StatFileReturn } from "../apis/filesystem.js";
 import { base64ToUint8Array, uint8ArrayToString } from "../utils.js";
 
-export async function pickFile(options?: PickFileOptions): Promise<PickFileReturn> {
+export async function pickFile(): Promise<PickFileReturn> {
     // @ts-ignore
     if (typeof globalThis.AstroBox?.filesystem?.pickFile === "function") {
-        let options_ = {};
-        if (options) {
-            options_ = options;
-        }
         // @ts-ignore
-        let ret = JSON.parse(await globalThis.AstroBox.filesystem.pickFile(JSON.stringify(options_)));
-        ret.content = base64ToUint8Array(ret.content);
-        return ret;
+        return JSON.parse(await globalThis.AstroBox.filesystem.pickFile());
     } else {
         throw new Error("AstroBox.filesystem.pickFile not available");
     }
 }
 
-export async function pickTextFile(): Promise<PickTextFileReturn> {
+export async function statFile(path: string): Promise<StatFileReturn> {
     // @ts-ignore
-    if (typeof globalThis.AstroBox?.filesystem?.pickFile === "function") {
+    if (typeof globalThis.AstroBox?.filesystem?.statFile === "function") {
         // @ts-ignore
-        let ret = JSON.parse(await globalThis.AstroBox.filesystem.pickFile());
-        ret.content = uint8ArrayToString(base64ToUint8Array(ret.content));
-        return ret;
+        return JSON.parse(await globalThis.AstroBox.filesystem.statFile(path));
     } else {
-        throw new Error("AstroBox.filesystem.pickFile not available");
+        throw new Error("AstroBox.filesystem.statFile not available");
+    }
+}
+
+export async function readFile(path: string, options?: ReadFileOptions): Promise<Uint8Array> {
+    // @ts-ignore
+    if (typeof globalThis.AstroBox?.filesystem?.readFile === "function") {
+        let options_: ReadFileOptions = {
+            offset: 0,
+            len: 0
+        }
+        if (options) {
+            options_ = options;
+        }
+        else {
+            options_.len = (await statFile(path)).size;
+        }
+        // @ts-ignore
+        return base64ToUint8Array(await globalThis.AstroBox.filesystem.readFile(path, JSON.stringify(options_)));
+    } else {
+        throw new Error("AstroBox.filesystem.readFile not available");
     }
 }
