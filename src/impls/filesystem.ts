@@ -26,7 +26,8 @@ export async function readFile(path: string, options?: ReadFileOptions): Promise
     if (typeof globalThis.AstroBox?.filesystem?.readFile === "function") {
         let options_: ReadFileOptions = {
             offset: 0,
-            len: 0
+            len: 0,
+            decode_text: true
         }
         if (options) {
             options_ = options;

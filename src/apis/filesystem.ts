@@ -16,4 +16,5 @@ export interface StatFileReturn {
 export interface ReadFileOptions {
     offset: number;
     len: number;
+    decode_text: boolean;
 }
