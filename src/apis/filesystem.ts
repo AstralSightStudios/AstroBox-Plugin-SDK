@@ -1,7 +1,7 @@
 export interface FileSystem {
     pickFile(): Promise<PickFileReturn>;
     statFile(path: string): Promise<StatFileReturn>;
-    readFile(path: string, options?: ReadFileOptions): Promise<Uint8Array>;
+    readFile(path: string, options?: ReadFileOptions): Promise<Uint8Array | string>;
 }
 
 export interface PickFileReturn {

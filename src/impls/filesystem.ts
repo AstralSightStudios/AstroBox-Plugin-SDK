@@ -21,7 +21,7 @@ export async function statFile(path: string): Promise<StatFileReturn> {
     }
 }
 
-export async function readFile(path: string, options?: ReadFileOptions): Promise<Uint8Array> {
+export async function readFile(path: string, options?: ReadFileOptions): Promise<Uint8Array | string> {
     // @ts-ignore
     if (typeof globalThis.AstroBox?.filesystem?.readFile === "function") {
         let options_: ReadFileOptions = {
@@ -36,7 +36,11 @@ export async function readFile(path: string, options?: ReadFileOptions): Promise
             options_.len = (await statFile(path)).size;
         }
         // @ts-ignore
-        return base64ToUint8Array(await globalThis.AstroBox.filesystem.readFile(path, JSON.stringify(options_)));
+        var result = await globalThis.AstroBox.filesystem.readFile(path, JSON.stringify(options_));
+        if (options_.decode_text) {
+            return result;
+        }
+        return base64ToUint8Array(result);
     } else {
         throw new Error("AstroBox.filesystem.readFile not available");
     }
