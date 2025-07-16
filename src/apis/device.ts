@@ -21,12 +21,12 @@ export interface MiWearDeviceState {
     codename: string;
 }
 
-interface MiWearBleCharaUuid {
+export interface MiWearBleCharaUuid {
     recv: string;
     sent: string;
 }
 
-interface SecurityKeys {
+export interface SecurityKeys {
     enc_key: Array<number>,
     dec_key: Array<number>,
     enc_nonce: Array<number>,

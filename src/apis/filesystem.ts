@@ -1,5 +1,5 @@
 export interface FileSystem {
-    pickFile(): PickFileReturn;
+    pickFile(): Promise<PickFileReturn>;
 }
 
 export interface PickFileReturn {
