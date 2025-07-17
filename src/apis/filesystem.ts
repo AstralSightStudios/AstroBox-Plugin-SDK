@@ -1,5 +1,5 @@
 export interface FileSystem {
-    pickFile(options: pickFileOptions): Promise<PickFileReturn>;
+    pickFile(options: PickFileOptions): Promise<PickFileReturn>;
     unloadFile(path: string): Promise<void>;
     readFile(path: string, options?: ReadFileOptions): Promise<Uint8Array | string>;
 }
@@ -20,7 +20,7 @@ export interface ReadFileOptions {
     decode_text?: boolean;
 }
 
-export interface pickFileOptions {
+export interface PickFileOptions {
     decode_text?: boolean;
     encoding?: string;
 }
