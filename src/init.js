@@ -2,6 +2,7 @@ import * as configImpl from "./impls/config.js";
 import * as debugImpl from "./impls/debug.js";
 import * as deviceImpl from "./impls/device.js";
 import * as eventImpl from "./impls/event.js";
+import * as filesystemImpl from "./impls/filesystem.js";
 import * as installerImpl from "./impls/installer.js";
 import * as interconnectImpl from "./impls/interconnect.js";
 import * as lifecycleImpl from "./impls/lifecycle.js";
@@ -10,7 +11,6 @@ import * as networkImpl from "./impls/network.js";
 import * as providerImpl from "./impls/provider.js";
 import * as thirdpartyImpl from "./impls/thirdpartyapp.js";
 import * as uiImpl from "./impls/ui.js";
-import * as filesystemImpl from "./impls/filesystem.js";
 
 export function initApis(AstroBox) {
     // Config APIs
@@ -73,6 +73,5 @@ export function initApis(AstroBox) {
     // FileSystem APIs
     AstroBox.filesystem = {};
     AstroBox.filesystem.pickFile = filesystemImpl.pickFile;
-    AstroBox.filesystem.statFile = filesystemImpl.statFile;
     AstroBox.filesystem.readFile = filesystemImpl.readFile;
 }

@@ -1,12 +1,13 @@
 export interface FileSystem {
-    pickFile(): Promise<PickFileReturn>;
-    statFile(path: string): Promise<StatFileReturn>;
+    pickFile(options: pickFileOptions): Promise<PickFileReturn>;
+    unloadFile(path: string): Promise<void>;
     readFile(path: string, options?: ReadFileOptions): Promise<Uint8Array | string>;
 }
 
 export interface PickFileReturn {
     path: string;
     size: number;
+    text_len: number;
 }
 
 export interface StatFileReturn {
@@ -14,7 +15,12 @@ export interface StatFileReturn {
 }
 
 export interface ReadFileOptions {
-    offset: number;
+    offset?: number;
     len: number;
-    decode_text: boolean;
+    decode_text?: boolean;
+}
+
+export interface pickFileOptions {
+    decode_text?: boolean;
+    encoding?: string;
 }
