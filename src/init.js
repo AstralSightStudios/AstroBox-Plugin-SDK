@@ -74,4 +74,5 @@ export function initApis(AstroBox) {
     AstroBox.filesystem = {};
     AstroBox.filesystem.pickFile = filesystemImpl.pickFile;
     AstroBox.filesystem.readFile = filesystemImpl.readFile;
+    AstroBox.filesystem.unloadFile = filesystemImpl.unloadFile;
 }

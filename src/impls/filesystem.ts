@@ -1,8 +1,8 @@
-import { pickFileOptions, PickFileReturn, ReadFileOptions } from "../apis/filesystem.js";
+import { PickFileOptions, PickFileReturn, ReadFileOptions } from "../apis/filesystem.js";
 import { base64ToUint8Array } from "../utils.js";
 
-export async function pickFile(options: pickFileOptions): Promise<PickFileReturn> {
-    const options_: pickFileOptions = {
+export async function pickFile(options: PickFileOptions): Promise<PickFileReturn> {
+    const options_: PickFileOptions = {
         decode_text: false,
         encoding: "undefined",
         ...options
