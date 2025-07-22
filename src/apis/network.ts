@@ -1,6 +1,6 @@
 export interface FetchOptions {
-    method: string;
-    headers: Record<string, string>;
+    method?: string;
+    headers?: Record<string, string>;
     body?: Uint8Array | string;
     raw?: boolean;
 }
