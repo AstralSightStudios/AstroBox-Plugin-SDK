@@ -1,6 +1,6 @@
 {
   "name": "astrobox-plugin-sdk",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "JavaScript Plugin SDK For AstroBox",
   "homepage": "https://github.com/AstralSightStudios/AstroBox-Plugin-SDK#readme",
   "bugs": {
